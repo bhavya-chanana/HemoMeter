@@ -6,6 +6,7 @@ from predict import predict_hb
 
 def main():
     st.title("HemoMeter")
+    st.write('Calculating Hemoglobin is now as easy as placing your finger on the camera, literally.')
 
     # Input fields for age and gender
     age = st.number_input("Enter your age:", min_value=0, max_value=120, step=1, value=21)
