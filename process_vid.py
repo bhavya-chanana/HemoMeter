@@ -225,11 +225,11 @@ def FeaturesDict(videoDetailsDict):
     video_name = videoDetailsDict['Video']
 
     # file_name = f"dynamic_file_{some_variable}.txt"
-                    #D:\Research-IIIT\modelppg\temp_dir\Biomarker_vals\20231217_121614_derivs_ratios_btwn_0-1199.csv
-    derivs_ratios = f"D:\Research-IIIT\modelppg\\temp_dir\Biomarker_vals\\{video_name}_derivs_ratios_btwn_0-1179.csv" #0-1499: 0 - 20 sec samples, 0-1199:14-29 sec sample
-    ppg_derivs = f"D:\Research-IIIT\modelppg\\temp_dir\Biomarker_vals\\{video_name}_ppg_derivs_btwn_0-1179.csv"
-    ppg_sig = f"D:\Research-IIIT\modelppg\\temp_dir\Biomarker_vals\\{video_name}_ppg_sig_btwn_0-1179.csv"       #1199 for .mp4 files
-    sig_ratios = f"D:\Research-IIIT\modelppg\\temp_dir\Biomarker_vals\\{video_name}_sig_ratios_btwn_0-1179.csv" #1179 for .mov files
+                    #D:\Research-IIIT\modelppg\temp_dir\Biomarker_vals\20231217_121614_derivs_processed.csv
+    derivs_ratios = f"D:\Research-IIIT\modelppg\\temp_dir\Biomarker_vals\\{video_name}_derivs_ratios_processed.csv" #0-1499: 0 - 20 sec samples, 0-1199:14-29 sec sample
+    ppg_derivs = f"D:\Research-IIIT\modelppg\\temp_dir\Biomarker_vals\\{video_name}_ppg_derivs_processed.csv"
+    ppg_sig = f"D:\Research-IIIT\modelppg\\temp_dir\Biomarker_vals\\{video_name}_ppg_sig_processed.csv"       #1199 for .mp4 files
+    sig_ratios = f"D:\Research-IIIT\modelppg\\temp_dir\Biomarker_vals\\{video_name}_sig_ratios_processed.csv" #1179 for .mov files
 
     # df1 = pd.read_csv(fiducials)
     df2 = pd.read_csv(derivs_ratios)
@@ -277,6 +277,10 @@ def videoDetails(video_name, age, gender):
 
     return videoDetailsDict
 
+
+'''
+example useage of process_vid.py
+'''
 if __name__ == "__main__":
     video_path = "D:\Research-IIIT\modelppg\\videos\\test_bhavya_01.mov"
 
