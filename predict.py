@@ -1,11 +1,5 @@
 import pickle
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVR
-from sklearn import metrics
-from sklearn.inspection import permutation_importance
-import matplotlib.pyplot as plt
-import os
 
 def predict_hb(data):
     '''

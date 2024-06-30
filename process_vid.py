@@ -9,8 +9,6 @@ import pyPPG.ppg_sqi as SQI
 import pyPPG.example as PE
 
 import numpy as np
-import sys
-import json
 import pandas as pd
 import cv2
 import os
