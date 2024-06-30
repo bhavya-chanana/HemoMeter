@@ -12,6 +12,10 @@ Visit the project at: [Project Web URL]
 - Accurate hemoglobin prediction
 - Supports video uploads in MP4 and MOV formats
 
+## Dataset
+The model was created using a custom-built dataset by collecting hemoglobin levels using traditional methods and corresponding 30-second video samples of the subjects' fingers.
+
+
 ## Getting Started
 
 ### Prerequisites
