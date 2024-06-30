@@ -14,6 +14,7 @@ def main():
     # File uploader for video on the main page
     uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mov"])
 
+
     if uploaded_file is not None:
         # Display uploaded video
         # st.video(uploaded_file)
@@ -51,5 +52,29 @@ def main():
         # Clean up temporary file
         os.remove(temp_video_path)
 
+    # Place buttons in columns for inline display
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        if st.button("Clean up ppgData"):
+            ppg_data_dir = "ppgData"
+            if os.path.exists(ppg_data_dir):
+                for root, dirs, files in os.walk(ppg_data_dir):
+                    for file in files:
+                        os.remove(os.path.join(root, file))
+                st.success(f"All files in {ppg_data_dir} have been cleaned up.")
+            else:
+                st.info(f"The directory {ppg_data_dir} does not exist.")
+
+    with col2:
+        if st.button("Clean up temp_dir"):
+            temp_dir = "temp_dir"
+            if os.path.exists(temp_dir):
+                for root, dirs, files in os.walk(temp_dir):
+                    for file in files:
+                        os.remove(os.path.join(root, file))
+                st.success(f"All files in {temp_dir} have been cleaned up.")
+            else:
+                st.info(f"The directory {temp_dir} does not exist.")
 if __name__ == "__main__":
     main()
