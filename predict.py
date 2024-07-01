@@ -8,7 +8,7 @@ def predict_hb(data):
     return prediction -> predicted Hb value
     '''
     # Load the trained SVR model from the pickle file
-    with open('D:\\Research-IIIT\\modelppg\\models\\svr_model.pkl', 'rb') as model_file:
+    with open('models\\svr_model.pkl', 'rb') as model_file:
         svr_model = pickle.load(model_file)
 
     # Define the expected features
