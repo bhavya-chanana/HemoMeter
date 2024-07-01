@@ -8,8 +8,6 @@ from dotmap import DotMap
 import mne
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import os
-import tkinter as tk
-from tkinter import simpledialog
 from scipy.io import savemat
 
 ###########################################################################
@@ -106,7 +104,7 @@ def load_data(data_path = "", fs = np.nan, start_sig = 0, end_sig = -1, channel=
             sig = -input_sig.get_data().squeeze()
         except:
             try:
-                if use_tk: input_name = simpledialog.askstring("Input", "Define the PPG channel name:")
+                if use_tk: input_name = input("Input", "Define the PPG channel name:")
                 input_sig = mne.io.read_raw_edf(sig_path, include=input_name)
                 sig = -input_sig.get_data().squeeze()
             except:
@@ -180,14 +178,9 @@ def plot_fiducials(s: pyPPG.PPG, fp: pyPPG.Fiducials, savefig=True, savingfolder
     """
 
     # Create a hidden root window to get screen dimensions
-    if use_tk:
-        root = tk.Tk()
-        screen_width = root.winfo_screenwidth()
-        screen_height = root.winfo_screenheight()
-        root.destroy()
-    else:
-        screen_width = 1500
-        screen_height = 950
+
+    screen_width = 1500
+    screen_height = 950
 
 
     # Define a scaling factor for the figure size (e.g., 0.8 for 80% of the screen size)
