@@ -60,7 +60,7 @@ The model was created using a custom-built dataset by collecting hemoglobin leve
     - Ensure no external light is detected by the camera to avoid interference.
 
 2. **Record a Video:**
-    - Record a video of your finger for at least 25-30 seconds. Alternatively, you can upload an existing video.
+    - Record a video of your finger for at least 25-30 seconds. Alternatively, you can upload an existing video. Video should be in recorded in 60fps
 
 3. **Submit for Analysis:**
     - Click the **"Calculate Hb"** button to process the video and calculate your hemoglobin level.
