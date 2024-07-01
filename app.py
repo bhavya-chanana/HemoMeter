@@ -41,6 +41,17 @@ def main():
     age = st.number_input("Enter your age:", min_value=0, max_value=120, step=1, value=21)
     gender = st.selectbox("Select your gender:", ["M", "F"])
 
+    # Expander for instructions
+    with st.expander("""**How to Take a Good Recording for Accurate Hemoglobin Prediction**"""):
+        st.write("""
+        - **Clean and Clear Equipment**: Make sure your finger, camera lens, and flash are clean and unobstructed.
+        - **Cover the Camera and Flash**: Cover the main(wide lens) camera and flash with your finger, ensure no external light is detected by the camera.
+        - **Keep the Camera Stable**: Avoid any movement or shaking during the recording.
+        - **Record for at Least 25 Seconds**: Ensure the recording duration is sufficient for a stable reading.
+        - **Prevent Flash Overheating**: Ensure the flash does not overheat during the recording.
+        """)
+        st.image("images/ppg_example.png", caption="Sample PPG Reading")
+
     # File uploader for video on the main page
     uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mov"])
 
@@ -80,16 +91,7 @@ def main():
             # Clean up temporary file
             os.remove(temp_video_path)
 
-    # Expander for instructions
-    with st.expander("""**How to Take a Good Recording for Accurate Hemoglobin Prediction**"""):
-        st.write("""
-        - **Clean and Clear Equipment**: Make sure your finger, camera lens, and flash are clean and unobstructed.
-        - **Cover the Camera and Flash**: Ensure no external light is detected by the camera.
-        - **Keep the Camera Stable**: Avoid any movement or shaking during the recording.
-        - **Record for at Least 25 Seconds**: Ensure the recording duration is sufficient for a stable reading.
-        - **Prevent Flash Overheating**: Ensure the flash does not overheat during the recording.
-        """)
-        st.image("images/ppg_example.png", caption="Sample PPG Reading")
+
 
     # Place buttons in columns for inline display
     col1, col2, col3, col4 = st.columns(4)
