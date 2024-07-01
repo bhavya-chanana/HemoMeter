@@ -4,7 +4,7 @@
 HemoMeter is a research project developed at IIIT-Naya Raipur by me - Bhavya Chanana during my research internship. This project enables users to calculate their hemoglobin levels by simply recording a video of their finger using their smartphone camera. This innovative approach leverages advanced photoplethysmography (PPG) techniques to provide a non-invasive method for hemoglobin estimation.
 
 ## Project URL
-Visit the project at: [HemoMeter(https://hemometer-4cc5491fd867.herokuapp.com/)]
+Visit the project at: [HemoMeter](https://hemometer-4cc5491fd867.herokuapp.com/)
 
 ## Features
 - User-friendly interface
