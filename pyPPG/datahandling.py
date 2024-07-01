@@ -5,7 +5,6 @@ import scipy.io
 import numpy as np
 import pandas as pd
 from dotmap import DotMap
-from tkinter import filedialog
 import mne
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import os
@@ -53,7 +52,7 @@ def load_data(data_path = "", fs = np.nan, start_sig = 0, end_sig = -1, channel=
     """
 
     if data_path=="":
-        sig_path = filedialog.askopenfilename(title='Select SIGNAL file', filetypes=[("Input Files", ".mat .csv .edf .pkl .txt")])
+        pass
     else:
         sig_path=data_path
 
