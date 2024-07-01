@@ -45,6 +45,7 @@ def main():
     with st.expander("""**How to Take a Good Recording for Accurate Hemoglobin Prediction**"""):
         st.write("""
         - **Clean and Clear Equipment**: Make sure your finger, camera lens, and flash are clean and unobstructed.
+        - **1080p 60fps video - record the video in 1080p 60 frames per second.
         - **Cover the Camera and Flash**: Cover the main(wide lens) camera and flash with your finger, ensure no external light is detected by the camera.
         - **Keep the Camera Stable**: Avoid any movement or shaking during the recording.
         - **Record for at Least 25 Seconds**: Ensure the recording duration is sufficient for a stable reading.
