@@ -70,12 +70,6 @@ def main():
         if cap.isOpened():
             st.success("Video file uploaded and read successfully!")
 
-            # Display the first frame of the video as a sanity check
-            ret, frame = cap.read()
-            if ret:
-                st.image(frame, caption="First frame of the uploaded video")
-            else:
-                st.error("Failed to read the video file.")
         else:
             st.error("Failed to open the video file.")
 
