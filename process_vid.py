@@ -224,37 +224,43 @@ def FeaturesDict(videoDetailsDict):
 
     # file_name = f"dynamic_file_{some_variable}.txt"
                     #emp_dir\Biomarker_vals\20231217_121614_derivs_processed.csv
-    derivs_ratios = f"temp_dir\Biomarker_vals\\{video_name}_derivs_ratios_processed.csv" #0-1499: 0 - 20 sec samples, 0-1199:14-29 sec sample
-    ppg_derivs = f"temp_dir\Biomarker_vals\\{video_name}_ppg_derivs_processed.csv"
-    ppg_sig = f"temp_dir\Biomarker_vals\\{video_name}_ppg_sig_processed.csv"       #1199 for .mp4 files
-    sig_ratios = f"temp_dir\Biomarker_vals\\{video_name}_sig_ratios_processed.csv" #1179 for .mov files
 
-    # df1 = pd.read_csv(fiducials)
-    df2 = pd.read_csv(derivs_ratios)
-    df3 = pd.read_csv(ppg_derivs)
-    df4 = pd.read_csv(ppg_sig)
-    df5 = pd.read_csv(sig_ratios)
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    temp_dir = os.path.join(base_dir, 'temp_dir', 'Biomarker_vals')
+    derivs_ratios = os.path.join(temp_dir, f'{video_name}_derivs_ratios_processed.csv')
+    ppg_derivs = os.path.join(temp_dir, f'{video_name}_ppg_derivs_processed.csv')
+    ppg_sig = os.path.join(temp_dir, f'{video_name}_ppg_sig_processed.csv')
+    sig_ratios = os.path.join(temp_dir, f'{video_name}_sig_ratios_processed.csv')
 
-    derivs_ratio_columns = ['Tu/Tpi', 'Tv/Tpi', 'Tw/Tpi']  
-    ppg_derivs_columns = ['Tu', 'Tv', 'Tw']  
-    ppg_sig_columns = ['Asp','Adn', 'Adp', 'Tpi', 'Tsp', 'Tsys', 'Tdp', 'deltaT']  
-    sig_ratios_columns = ['Tsp/Tpi']  
+    try:
+        # df1 = pd.read_csv(fiducials)
+        df2 = pd.read_csv(derivs_ratios)
+        df3 = pd.read_csv(ppg_derivs)
+        df4 = pd.read_csv(ppg_sig)
+        df5 = pd.read_csv(sig_ratios)
+
+        derivs_ratio_columns = ['Tu/Tpi', 'Tv/Tpi', 'Tw/Tpi']  
+        ppg_derivs_columns = ['Tu', 'Tv', 'Tw']  
+        ppg_sig_columns = ['Asp','Adn', 'Adp', 'Tpi', 'Tsp', 'Tsys', 'Tdp', 'deltaT']  
+        sig_ratios_columns = ['Tsp/Tpi']  
 
 
 
-    # Calculate the average of each column
-    df7 = df2[derivs_ratio_columns].mean()
-    df8 = df3[ppg_derivs_columns].mean()
-    df9 = df4[ppg_sig_columns].mean()
-    df10 = df5[sig_ratios_columns].mean()
+        # Calculate the average of each column
+        df7 = df2[derivs_ratio_columns].mean()
+        df8 = df3[ppg_derivs_columns].mean()
+        df9 = df4[ppg_sig_columns].mean()
+        df10 = df5[sig_ratios_columns].mean()
 
-    df = pd.concat([df7, df8, df9, df10], axis=0)
+        df = pd.concat([df7, df8, df9, df10], axis=0)
 
-    df_dict = df.to_dict()
+        df_dict = df.to_dict()
 
-    df_dict.update(videoDetailsDict)
+        df_dict.update(videoDetailsDict)
 
-    return df_dict
+        return df_dict
+    except FileNotFoundError:
+        print(f'file not found')
 
 def videoDetails(video_name, age, gender):
     '''
