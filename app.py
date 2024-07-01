@@ -3,6 +3,7 @@ import tempfile
 import os
 from process_vid import videoDetails, extract_ppg_from_video, convert_csv, pyppgFeatures, FeaturesDict
 from predict import predict_hb
+import cv2
 
 def main():
     # Inject custom CSS
@@ -63,6 +64,22 @@ def main():
         with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_file.name)[1]) as temp_file:
             temp_file.write(uploaded_file.getbuffer())
             temp_video_path = temp_file.name
+
+        # Process the uploaded video file using OpenCV
+        cap = cv2.VideoCapture(temp_video_path)
+        if cap.isOpened():
+            st.success("Video file uploaded and read successfully!")
+
+            # Display the first frame of the video as a sanity check
+            ret, frame = cap.read()
+            if ret:
+                st.image(frame, caption="First frame of the uploaded video")
+            else:
+                st.error("Failed to read the video file.")
+        else:
+            st.error("Failed to open the video file.")
+
+        cap.release()
 
         if st.button("Calculate Hb"):
             video_file = os.path.basename(temp_video_path)
