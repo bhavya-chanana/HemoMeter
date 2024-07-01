@@ -68,7 +68,7 @@ def main():
         # Process the uploaded video file using OpenCV
         cap = cv2.VideoCapture(temp_video_path)
         if cap.isOpened():
-            st.success("Video file uploaded and read successfully!")
+            st.success("Video file uploaded successfully!")
 
         else:
             st.error("Failed to open the video file.")
