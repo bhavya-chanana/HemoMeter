@@ -5,6 +5,7 @@ HemoMeter is a research project developed at IIIT-Naya Raipur by me - Bhavya Cha
 
 ## Project URL
 Visit the project at: [[HemoMeter](https://hemometer-4cc5491fd867.herokuapp.com/)]
+URL - https://hemometer-4cc5491fd867.herokuapp.com/
 
 ## Features
 - User-friendly interface
